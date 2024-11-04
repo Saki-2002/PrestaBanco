@@ -30,5 +30,5 @@ public class MCApplicationEntity {
     private double annualInterestRate; //En %
     private double lienInsurance; // En %
     private double fireInsurance; //En CLP
-    private double administrationCommision; //En %
+    private double administrationCommission; //En %
 }
