@@ -29,9 +29,7 @@ public class MCStatusService {
 
     private void createStatusIfNotFound(String status){
         if(mcStatusRepository.findByStatus(status)==null){
-            MCStatusEntity mcStatusEntity = new MCStatusEntity();
-            mcStatusEntity.setStatus(status);
-            mcStatusRepository.save(mcStatusEntity);
+            mcStatusRepository.save(new MCStatusEntity(null, status));
         }
     }
 
