@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("api/v1/simulate")
+@RequestMapping("/api/v1/simulate")
 @CrossOrigin("*")
 public class MCSimulationController {
 
