@@ -3,7 +3,6 @@ package com.prestabanco.PrestaBanco.Controllers;
 import com.prestabanco.PrestaBanco.Entities.UserEntity;
 import com.prestabanco.PrestaBanco.Services.UserService;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
@@ -19,21 +18,29 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/register")
+    @PostMapping("/register")
     public ResponseEntity<?> register (@RequestBody Map<String, Object> requestData){
         String name = requestData.get("name").toString();
-        String password = requestData.get("password").toString();
+        String password1 = requestData.get("password1").toString();
+        String password2 = requestData.get("password2").toString();
         String role = requestData.get("role").toString();
 
-        UserEntity user = userService.register(name, password, role);
-        if(user!=null){
-            return ResponseEntity.ok(user);
+        if(password1.equals(password2)){
+            UserEntity user = userService.register(name, password1, role);
+            if(user!=null){
+                return ResponseEntity.ok(user);
+            } else {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Ya existe un usuario con ese nombre");
+            }
         } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Ya existe un usuario con ese nombre");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Las contraseñas no son iguales");
         }
+
+
+
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody Map<String, Object> requestData){
         String name = requestData.get("name").toString();
         String password = requestData.get("password").toString();

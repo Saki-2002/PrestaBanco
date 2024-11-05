@@ -19,7 +19,7 @@ public class MCSimulationController {
     @PostMapping("/")
     public ResponseEntity<Double> simulateMortgageCredit(@RequestBody Map<String, Object> requestData){
         int loanAmount = (Integer) requestData.get("loanAmount");
-        double annualInterestRate = (Double) requestData.get("annualInterestRate");
+        double annualInterestRate = ((Number) requestData.get("annualInterestRate")).doubleValue();
         int loanTerm = (Integer) requestData.get("loanTerm");
         double result = mcSimulationService.simulateMortgageCredit(loanAmount,loanTerm,annualInterestRate);
         return ResponseEntity.ok(result);
