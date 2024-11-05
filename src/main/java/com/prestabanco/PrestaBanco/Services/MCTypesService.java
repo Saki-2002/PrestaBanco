@@ -34,9 +34,9 @@ public class MCTypesService {
                     null,
                     "Primera Vivienda",
                     30,
-                    0.035,
-                    0.05,
-                    0.8
+                    3.5,
+                    5,
+                    80
             ));
         }
     }
@@ -47,9 +47,9 @@ public class MCTypesService {
                     null,
                     "Segunda Vivienda",
                     20,
-                    0.04,
-                    0.06,
-                    0.7
+                    4,
+                    6,
+                    70
             ));
         }
     }
@@ -60,9 +60,9 @@ public class MCTypesService {
                     null,
                     "Propiedades Comerciales",
                     25,
-                    0.05,
-                    0.07,
-                    0.6
+                    5,
+                    7,
+                    60
             ));
         }
     }
@@ -73,9 +73,9 @@ public class MCTypesService {
                     null,
                     "Remodelación",
                     15,
-                    0.045,
-                    0.06,
-                    0.5
+                    4.5,
+                    6,
+                    50
             ));
         }
     }
