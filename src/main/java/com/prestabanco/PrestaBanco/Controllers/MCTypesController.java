@@ -17,7 +17,7 @@ public class MCTypesController {
     @Autowired
     MCTypesService mcTypesService;
 
-    @GetMapping("/")
+    @GetMapping("/getAll")
     public ResponseEntity<List<MCTypesEntity>> getAll() {
         List<MCTypesEntity> mcTypesEntities = mcTypesService.getAll();
         return ResponseEntity.ok(mcTypesEntities);

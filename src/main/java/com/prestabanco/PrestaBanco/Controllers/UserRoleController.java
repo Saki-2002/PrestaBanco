@@ -17,7 +17,7 @@ public class UserRoleController {
     @Autowired
     UserRoleService userRoleService;
 
-    @GetMapping("/")
+    @GetMapping("/getAll")
     public ResponseEntity<List<UserRoleEntity>> getAll() {
         List<UserRoleEntity> userRoleEntities = userRoleService.getAll();
         return ResponseEntity.ok(userRoleEntities);
