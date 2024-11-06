@@ -7,13 +7,13 @@ pipeline {
         stage('Build JAR'){
             steps{
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Saki-2002/PrestaBanco']])
-                bat "mvn clean package"
+                bat "mvn clean package -Dspring.profiles.active=test"
             }
         }
 
         stage('Unit Tests') {
             steps {
-                bat "mvn test"
+                bat "mvn test -Dspring.profiles.active=test"
             }
         }
 		
