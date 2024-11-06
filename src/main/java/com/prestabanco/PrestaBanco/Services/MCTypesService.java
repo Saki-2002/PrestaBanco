@@ -22,60 +22,27 @@ public class MCTypesService {
 
     @PostConstruct
     public void init() {
-        createIfNotFound_1stHome();
-        createIfNotFound_2ndHome();
-        createIfNotFound_commProp();
-        createIfNotFound_remodeling();
+        createIfNotFound("Primera Vivienda",30,3.5,5,80);
+        createIfNotFound("Segunda Vivienda",20,4,6,70);
+        createIfNotFound("Propiedades Comerciales",25,5,7,60);
+        createIfNotFound("Remodelación",15,4.5,6,50);
     }
 
-    private void createIfNotFound_1stHome(){
-        if(mcTypesRepository.findByType("Primera Vivienda")==null){
+    private void createIfNotFound(
+            String type,
+            int max_term,
+            double min_interest_rate,
+            double max_interest_rate,
+            int max_financing_amount
+    ){
+        if(mcTypesRepository.findByType(type)==null){
             mcTypesRepository.save(new MCTypesEntity(
                     null,
-                    "Primera Vivienda",
-                    30,
-                    3.5,
-                    5,
-                    80
-            ));
-        }
-    }
-
-    private void createIfNotFound_2ndHome(){
-        if(mcTypesRepository.findByType("Segunda Vivienda")==null){
-            mcTypesRepository.save(new MCTypesEntity(
-                    null,
-                    "Segunda Vivienda",
-                    20,
-                    4,
-                    6,
-                    70
-            ));
-        }
-    }
-
-    private void createIfNotFound_commProp(){
-        if(mcTypesRepository.findByType("Propiedades Comerciales")==null){
-            mcTypesRepository.save(new MCTypesEntity(
-                    null,
-                    "Propiedades Comerciales",
-                    25,
-                    5,
-                    7,
-                    60
-            ));
-        }
-    }
-
-    private void createIfNotFound_remodeling(){
-        if(mcTypesRepository.findByType("Remodelación")==null){
-            mcTypesRepository.save(new MCTypesEntity(
-                    null,
-                    "Remodelación",
-                    15,
-                    4.5,
-                    6,
-                    50
+                    type,
+                    max_term,
+                    min_interest_rate,
+                    max_interest_rate,
+                    max_financing_amount
             ));
         }
     }
