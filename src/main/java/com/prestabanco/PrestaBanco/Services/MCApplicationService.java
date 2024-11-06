@@ -2,7 +2,6 @@ package com.prestabanco.PrestaBanco.Services;
 
 import com.prestabanco.PrestaBanco.Entities.MCApplicationEntity;
 import com.prestabanco.PrestaBanco.Repositories.MCApplicationRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +9,9 @@ import org.springframework.stereotype.Service;
 public class MCApplicationService {
 
     @Autowired
-    MCApplicationRepository mcApplicationRepository;
+    private MCApplicationRepository mcApplicationRepository;
 
     public MCApplicationEntity saveMCApplication(MCApplicationEntity mcApplicationEntity) {
         return mcApplicationRepository.save(mcApplicationEntity);
     }
-
 }
