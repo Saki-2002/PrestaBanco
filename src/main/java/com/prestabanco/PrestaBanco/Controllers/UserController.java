@@ -45,6 +45,7 @@ public class UserController {
         String name = requestData.get("name").toString();
         String password = requestData.get("password").toString();
 
+
         UserEntity user = userService.login(name, password);
         if(user!=null){
             return ResponseEntity.ok(user);

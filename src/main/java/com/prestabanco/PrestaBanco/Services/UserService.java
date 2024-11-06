@@ -29,9 +29,10 @@ public class UserService {
     }
 
     public UserEntity login(String name, String password){
+
         UserEntity user = userRepository.findByName(name);
 
-        if(user==null && user.getPassword().equals(password)){
+        if(user!=null && user.getPassword().equals(password)){
             return user;
         } else {
             return null;
